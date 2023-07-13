@@ -3,26 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ff5142a3bc.js" crossorigin="anonymous"></script>    
     <link rel="stylesheet" href="style.css">
     <title>YouTask</title>
 </head>
 <body>
-    <h1>YouTask</h1>
+    <div class="pop-up__container" id="pop-up__container">
+        <form class="form" id="form">
+            <label for="title">Title</label>
+            <input type="text" id="title" required>
+            <br>
+            <label for="description">Description</label>
+            <input type="text" id="description">
+            <br>
+            <label for="status">Task Status</label>
+            <select id="status"> 
+                <option value="todo">Todo</option>
+                <option value="doing">Doing</option>
+                <option value="done">Done</option>
+            </select>
+            <br>
+            <button type="submit" id="btn-add">Add Task</button>
+        </form>
+    </div>
+    <h1><i class="fa-solid fa-square-check" style="color: #ffffff; margin-right:15px;"></i>YouTask</h1>
+    
+    
     <div class="board" id="board">
         <div class="todo col-container" id="todo">
-            <h3>Todo</h3>
+            <div class="icon-end">
+                <h3>Todo </h3>
+                <i class="fa-solid fa-ellipsis-vertical align-right"></i>
+            </div>
+            
+            
             <ul class="todo-list" id="todo-list">
                 
             </ul>
         </div>
         <div class="doing col-container" id="doing">
-            <h3>Doing</h3>
+            <div class="icon-end">
+                <h3>Doing </h3>
+                <i class="fa-solid fa-ellipsis-vertical align-right"></i>
+            </div>
             <ul class="doing-list" id="doing-list">
                 
             </ul>
         </div>
         <div class="done col-container" id="done">
-            <h3>Done</h3>
+            <div class="icon-end">
+                <h3>Done </h3>
+                <i class="fa-solid fa-ellipsis-vertical align-right"></i>
+            </div>
             <ul class="done-list" id="done-list">
                 
         </div>
