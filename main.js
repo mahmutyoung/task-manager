@@ -1,8 +1,8 @@
 let task1 = createTask('task1', 'description1');
 let task2 = createTask('task2', 'description2');
-let task3 = createTask('task3', 'description2');
-let task4 = createTask('task3', 'description2');
-let task5 = createTask('task3', 'description2');
+let task3 = createTask('task3', 'description3');
+let task4 = createTask('task4', 'description4');
+let task5 = createTask('task5', 'description5');
 task2.status = 'doing';
 task3.status = 'done';
 task4.status = 'doing';
@@ -18,29 +18,24 @@ const doingTasks = filterByStatus('doing', tasks);
 const doneTasks = filterByStatus('done', tasks);
 
 function createTodoList(tasks) {
-  return tasks.forEach((element) => {
-    if (element.status === 'todo') {
-      todoList.innerHTML += `
-      <li class="task">
-      <h4>${element.title}</h4> 
-      <p>${element.description}</p>
-      </li>`;
+  return tasks.map((item) => {
+    if (item.status === 'todo') {
+      todoList.innerHTML += createListItem(item);
     }
-    if (element.status === 'doing') {
-      doingList.innerHTML += `
-      <li class="task">
-      <h4 contenteditable="true">${element.title}</h4> 
-      <p>${element.description}</p>
-      </li>`;
+    if (item.status === 'doing') {
+      doingList.innerHTML += createListItem(item);
     }
-    if (element.status === 'done') {
-      doneList.innerHTML += `
-      <li class="task">
-      <h4>${element.title}</h4> 
-      <p>${element.description}</p>
-      </li>`;
+    if (item.status === 'done') {
+      doneList.innerHTML += createListItem(item);
     }
   });
 }
 
+function createListItem(item) {
+  return `
+   <li class="task" id="${item.id}">
+   <h4>${item.title}</h4> 
+   <p>${item.description}</p>
+   </li>`;
+}
 createTodoList(tasks);
