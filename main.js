@@ -31,6 +31,15 @@ function createTodoList(tasks) {
   });
 }
 
+function createList(status, tasks) {
+  const list = document.createElement('ul');
+  const listHTML = tasks.filterByStatus(status).map((item) => {
+    return (list.innerHTML += createListItem(item));
+  });
+  return `
+    <ul class="${status}" id="${listTitle}" >${listHTML}</ul>`;
+}
+
 function createListItem(item) {
   return `
    <li class="task" id="${item.id}">
