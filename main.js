@@ -6,6 +6,7 @@ const doingList = document.getElementById('doing-list');
 const doneList = document.getElementById('done-list');
 const form = document.getElementById('pop-up__form');
 const newCard = document.getElementById('add');
+const btnCancel = document.getElementById('btn-cancel');
 
 //initial render
 renderBoard(tasks);
@@ -35,7 +36,7 @@ function deleteBoard() {
   doneList.innerHTML = '';
 }
 
-//form for task creation
+//submit form for task creation
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const title = e.target[0].value;
@@ -56,6 +57,20 @@ function toggleFormVisibility() {
     : (popup.style.visibility = 'visible');
 }
 
+//cancel the form
+btnCancel.addEventListener('click', () => {
+  popup.style.visibility = 'hidden';
+});
+
+function editTask(id) {
+  const element = document.getElementById(`${id}`);
+  element.style.contentEditable = 'true';
+}
+
+function handleHover() {
+  const editIcon = document.getElementById('edit__icon');
+  editIcon.style.visibility = 'visible';
+}
 /*
 function createList(status, tasks) {
   const list = filterByStatus({ tasks, status }).map((item) => {
@@ -69,8 +84,11 @@ function createList(status, tasks) {
 */
 function createListItem(item) {
   return `
-    <li class="task" id="${item.id}">
-    <h4>${item.title}</h4> 
+    <li class="task" id="${item.id}" onclick="editTask(${item.id})">
+    <div class="task__header">
+    <h4 class="task__title" >${item.title}</h4> 
+    <i class="fa-solid fa-pen align-right" id="edit__icon"></i>
+    </div>
     <p>${item.description}</p>
     </li>`;
 }

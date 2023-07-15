@@ -27,6 +27,7 @@
     
     border-radius: 8px;
 } 
+
 input, select{
     padding: 4px;
     margin: 8px 0px;
@@ -36,18 +37,22 @@ input, select{
     border-radius: 4px;
     background-color: rgb(243, 243, 243);
 }
-input:focus {
-    border: 0;
+
+input[type=text]:focus {
+    border: 0px;
   }
-#description{
-    line-height: 50px;
-}
+
 button{
     padding:4px;
 }
-select option{
-    padding:8px;
-    margin:4px 0px;
+#description{
+    padding: 4px;
+    margin: 8px 0px;
+    width: 100%;
+    background-color: rgb(243, 243, 243);
+    resize: none;
+    border:none;
+    border-radius: 4px;
     
 }
 .board{
@@ -64,28 +69,23 @@ h1{
     background-color:rgb(12, 126, 248) ;
     box-shadow: 0 4px 60px 10px rgba(0, 0, 0, 0.29);
 }
-.todo .list__header{
+.list__header{
     display: flex;
     padding-right:16px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    
+}
+.todo .list__header {
     border-bottom:3px solid rgb(73, 118, 255) ;
 }
 .doing .list__header{
-    display: flex;
-    padding-right:16px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    
     border-bottom:3px solid rgb(255, 179, 73);
 }
 .done .list__header{
-    display: flex;
-    padding-right:16px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    
     border-bottom:3px solid rgb(73, 255, 73);
 }
 h3{
@@ -139,6 +139,17 @@ ul{
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.21);
     border-radius: 6px;
 }
+.task__header{
+    display: flex;
+    border: 1px solid rgb(73, 118, 255);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between
+}
+.task__header i{
+    visibility: hidden;
+}
+
 
 .addCard{
     margin:4px 8px;
