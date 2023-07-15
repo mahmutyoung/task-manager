@@ -1,30 +1,16 @@
 const tasks = [];
 console.log(tasks);
+const popup = document.getElementById('pop-up__container');
 const todoList = document.getElementById('todo-list');
 const doingList = document.getElementById('doing-list');
 const doneList = document.getElementById('done-list');
-const form = document.getElementById('form');
+const form = document.getElementById('pop-up__form');
 const newCard = document.getElementById('add');
-const popup = document.getElementById('pop-up__container');
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const title = e.target[0].value;
-  const description = e.target[1].value;
-  const status = e.target[2].value;
-  const newTask = createTask(title, description, status);
-  console.log(newTask);
-  tasks.push(newTask);
-  e.target[0].value = '';
-  e.target[1].value = '';
+//initial render
+renderBoard(tasks);
 
-  renderBoard(tasks);
-
-  popup.setAttribute('style', 'visibility: hidden');
-});
-function addCard() {
-  popup.setAttribute('style', 'visibility: visible');
-}
+//render board
 function renderBoard(tasks) {
   deleteBoard();
   tasks.forEach((item) => {
@@ -38,15 +24,38 @@ function renderBoard(tasks) {
       doneList.innerHTML += createListItem(item);
     }
   });
-  todoList.innerHTML += `<p onclick="addCard()" class="addCard"><i class="fa-solid fa-plus"></i> Add A Card</p>`;
-  doingList.innerHTML += `<p onclick="addCard()" class="addCard"><i class="fa-solid fa-plus"></i> Add A Card</p>`;
-  doneList.innerHTML += `<p onclick="addCard()" class="addCard"><i class="fa-solid fa-plus"></i> Add A Card</p>`;
+  todoList.innerHTML += `<p onclick="toggleFormVisibility()" class="addCard"><i class="fa-solid fa-plus"></i> Add A Card</p>`;
+  doingList.innerHTML += `<p onclick="toggleFormVisibility()" class="addCard"><i class="fa-solid fa-plus"></i> Add A Card</p>`;
+  doneList.innerHTML += `<p onclick="toggleFormVisibility()" class="addCard"><i class="fa-solid fa-plus"></i> Add A Card</p>`;
 }
+//clear lists before render
 function deleteBoard() {
   todoList.innerHTML = '';
   doingList.innerHTML = '';
   doneList.innerHTML = '';
 }
+
+//form for task creation
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const title = e.target[0].value;
+  const description = e.target[1].value;
+  const status = e.target[2].value;
+  const newTask = createTask(title, description, status);
+  console.log(newTask);
+  tasks.push(newTask);
+  e.target[0].value = '';
+  e.target[1].value = '';
+  renderBoard(tasks);
+  toggleFormVisibility();
+});
+
+function toggleFormVisibility() {
+  popup.style.visibility === 'visible'
+    ? (popup.style.visibility = 'hidden')
+    : (popup.style.visibility = 'visible');
+}
+
 /*
 function createList(status, tasks) {
   const list = filterByStatus({ tasks, status }).map((item) => {
@@ -65,5 +74,3 @@ function createListItem(item) {
     <p>${item.description}</p>
     </li>`;
 }
-
-renderBoard(tasks);

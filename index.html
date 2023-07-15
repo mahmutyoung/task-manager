@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="pop-up__container" id="pop-up__container">
-        <form class="form" id="form">
+        <form class="pop-up__form" id="pop-up__form">
             <label for="title">Title</label>
             <input type="text" id="title" required>
             <br>
@@ -24,41 +24,39 @@
             </select>
             <br>
             <button type="submit" id="btn-add">Add Task</button>
+            <button type="reset" id="btn-dismiss">Reset</button>
         </form>
     </div>
-    <h1><i class="fa-solid fa-square-check" style="color: #ffffff; margin-right:15px;"></i>YouTask</h1>
+    <nav class="top-nav" id="top-nav">
+        <h1><i class="fa-solid fa-square-check" style="color: #ffffff; margin-right:15px;"></i>YouTask</h1>
+    </nav>
+    <main class="board" id="board">
+   
     
-    
-    <div class="board" id="board">
         <div class="todo col-container" id="todo">
-            <div class="icon-end">
+            <div class="list__header">
                 <h3>Todo </h3>
                 <i class="fa-solid fa-ellipsis-vertical align-right"></i>
             </div>
-            
-            
             <ul class="todo-list" id="todo-list">
-                
             </ul>
         </div>
         <div class="doing col-container" id="doing">
-            <div class="icon-end">
+            <div class="list__header">
                 <h3>Doing </h3>
                 <i class="fa-solid fa-ellipsis-vertical align-right"></i>
             </div>
             <ul class="doing-list" id="doing-list">
-                
             </ul>
         </div>
         <div class="done col-container" id="done">
-            <div class="icon-end">
+            <div class="list__header">
                 <h3>Done </h3>
                 <i class="fa-solid fa-ellipsis-vertical align-right"></i>
             </div>
             <ul class="done-list" id="done-list">
-                
         </div>
-    </div>
+    </main>
     <script src="utils.js"></script>
     <script src="main.js"></script>
 </body>
