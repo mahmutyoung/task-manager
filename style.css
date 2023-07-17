@@ -1,6 +1,6 @@
 *{
-    margin: 0;
-    padding: 0;
+    padding: 0px;
+    margin:0px;
     box-sizing: border-box;
     color:rgb(40, 40, 40);
     font-family: 'Poppins', sans-serif;
@@ -132,7 +132,7 @@ ul{
     list-style: none;
 }
 .task{
-    margin: 8px;
+    margin: 16px 16px;
     padding: 8px;
     overflow-wrap: break-word;
     background-color: rgb(255, 255, 255);
@@ -141,7 +141,6 @@ ul{
 }
 .task__header{
     display: flex;
-    border: 1px solid rgb(73, 118, 255);
     flex-direction: row;
     align-items: center;
     justify-content: space-between
@@ -152,7 +151,7 @@ ul{
 
 
 .addCard{
-    margin:4px 8px;
+    margin:0 8px;
     padding: 4px;
     color: rgb(90, 90, 90);
     

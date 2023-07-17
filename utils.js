@@ -8,18 +8,20 @@ const createTask = (title, description, status) => {
   };
   return task;
 };
+const generateId = (() => {
+  let id = 0;
+  return () => id++;
+})();
 
 //delete Task
 function deleteTask(id) {
   return filterById(id);
 }
 
-const generateId = (() => {
-  let id = 0;
-  return () => id++;
-})();
+function findTaskById(id) {
+  return tasks.find((task) => task.id === id);
+}
 
-//update Task
 function updateStatus(id, status) {
   return tasks.map((task) => {
     if (task.id === id) {

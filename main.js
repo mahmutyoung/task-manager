@@ -5,7 +5,7 @@ const todoList = document.getElementById('todo-list');
 const doingList = document.getElementById('doing-list');
 const doneList = document.getElementById('done-list');
 const form = document.getElementById('pop-up__form');
-const newCard = document.getElementById('add');
+//const newCard = document.getElementById('add');
 const btnCancel = document.getElementById('btn-cancel');
 
 //initial render
@@ -37,7 +37,9 @@ function deleteBoard() {
 }
 
 //submit form for task creation
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', handleSubmitForm);
+
+function handleSubmitForm(e) {
   e.preventDefault();
   const title = e.target[0].value;
   const description = e.target[1].value;
@@ -49,7 +51,7 @@ form.addEventListener('submit', (e) => {
   e.target[1].value = '';
   renderBoard(tasks);
   toggleFormVisibility();
-});
+}
 
 function toggleFormVisibility() {
   popup.style.visibility === 'visible'
@@ -58,13 +60,13 @@ function toggleFormVisibility() {
 }
 
 //cancel the form
-btnCancel.addEventListener('click', () => {
-  popup.style.visibility = 'hidden';
-});
+btnCancel.addEventListener('click', toggleFormVisibility);
 
 function editTask(id) {
-  const element = document.getElementById(`${id}`);
-  element.style.contentEditable = 'true';
+  const listItem = document.getElementById(id);
+  console.log(listItem);
+  listItem.contentEditable = 'true';
+  console.log(tasks);
 }
 
 function handleHover() {
