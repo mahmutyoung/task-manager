@@ -63,16 +63,19 @@ function toggleFormVisibility() {
 btnCancel.addEventListener('click', toggleFormVisibility);
 
 function editTask(id) {
+  const task = findTaskById(id);
   const listItem = document.getElementById(id);
   console.log(listItem);
   listItem.contentEditable = 'true';
   console.log(tasks);
 }
 
-function handleHover() {
-  const editIcon = document.getElementById('edit__icon');
-  editIcon.style.visibility = 'visible';
-}
+tasks.forEach((item) => {
+  document.getElementById(item.id + 'i').addEventListener('mouseover', () => {
+    this.style.visibility = 'visible';
+  });
+});
+
 /*
 function createList(status, tasks) {
   const list = filterByStatus({ tasks, status }).map((item) => {
@@ -86,10 +89,10 @@ function createList(status, tasks) {
 */
 function createListItem(item) {
   return `
-    <li class="task" id="${item.id}" onclick="editTask(${item.id})">
+    <li class="task" id="${item.id}" onclick="editTask(${item.id}")>
     <div class="task__header">
     <h4 class="task__title" >${item.title}</h4> 
-    <i class="fa-solid fa-pen align-right" id="edit__icon"></i>
+    <i class="fa-solid fa-pen" id="${item.id}i"></i>
     </div>
     <p>${item.description}</p>
     </li>`;
