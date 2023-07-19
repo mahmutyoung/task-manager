@@ -50,6 +50,19 @@ function handleSubmitForm(e) {
   e.target[0].value = '';
   e.target[1].value = '';
   renderBoard(tasks);
+  tasks.forEach((item) => {
+    const parent = document.getElementById(`${item.id}`);
+    parent.addEventListener('mouseenter', () => {
+      parent.style.backgroundColor = 'rgb(250, 250, 250)';
+      console.log(parent.children);
+      parent.children[0].children[1].style.visibility = 'visible';
+    });
+    parent.addEventListener('mouseleave', () => {
+      parent.style.backgroundColor = 'rgb(255, 255, 255)';
+
+      parent.children[0].children[1].style.visibility = 'hidden';
+    });
+  });
   toggleFormVisibility();
 }
 
@@ -70,12 +83,6 @@ function editTask(id) {
   console.log(tasks);
 }
 
-tasks.forEach((item) => {
-  document.getElementById(item.id + 'i').addEventListener('mouseover', () => {
-    this.style.visibility = 'visible';
-  });
-});
-
 /*
 function createList(status, tasks) {
   const list = filterByStatus({ tasks, status }).map((item) => {
@@ -89,10 +96,10 @@ function createList(status, tasks) {
 */
 function createListItem(item) {
   return `
-    <li class="task" id="${item.id}" onclick="editTask(${item.id}")>
+    <li class="task" id="${item.id}" onclick="editTask(${item.id})">
     <div class="task__header">
     <h4 class="task__title" >${item.title}</h4> 
-    <i class="fa-solid fa-pen" id="${item.id}i"></i>
+    <i class="fa-solid fa-pen" ></i>
     </div>
     <p>${item.description}</p>
     </li>`;
