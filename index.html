@@ -19,8 +19,6 @@
             <label for="status">Task Status</label>
             <select id="status"> 
                 <option value="todo">Todo</option>
-                <option value="doing">Doing</option>
-                <option value="done">Done</option>
             </select>
             <br>
             <button type="submit" id="btn-add">Save</button>
@@ -30,34 +28,16 @@
     <nav class="top-nav" id="top-nav">
         <h1><i class="fa-solid fa-square-check" style="color: #ffffff; margin-right:15px;"></i>YouTask</h1>
     </nav>
-    <main class="board" id="board">
    
-    
-        <div class="todo col-container" id="todo">
-            <div class="list__header">
-                <h3>Todo </h3>
-                <i class="fa-solid fa-ellipsis-vertical align-right"></i>
-            </div>
-            <ul class="todo-list" id="todo-list">
-            </ul>
-        </div>
-        <div class="doing col-container" id="doing">
-            <div class="list__header">
-                <h3>Doing </h3>
-                <i class="fa-solid fa-ellipsis-vertical align-right"></i>
-            </div>
-            <ul class="doing-list" id="doing-list">
-            </ul>
-        </div>
-        <div class="done col-container" id="done">
-            <div class="list__header">
-                <h3>Done </h3>
-                <i class="fa-solid fa-ellipsis-vertical align-right"></i>
-            </div>
-            <ul class="done-list" id="done-list">
-        </div>
+
     </main>
     <script src="utils.js"></script>
+    <script src="listHeader.js"></script>
+    <script src="form.js"></script>
+    
+    <script src="listItem.js"></script>
+    <script src="list.js"></script>
     <script src="main.js"></script>
+    
 </body>
 </html>
