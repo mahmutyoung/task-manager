@@ -1,14 +1,9 @@
 const ListHeader = (status) => {
-  const listHeader = document.createElement('div');
+  //const listHeader = document.createElement('div');
   const listName = capitalizeFirstLetter(status);
+  console.log(listName);
 
-  listHeader.innerHTML = `
-  <div class="list__header">
-    <h3>${listName} </h3>
-     <i class="fa-solid fa-ellipsis-vertical align-right"></i>
-  </div>
-  `;
-  return listHeader;
+  return `<div class="list__header"><h3>${listName} </h3><i class="fa-solid fa-ellipsis-vertical align-right"></i></div>`;
 };
 
 function capitalizeFirstLetter(str) {

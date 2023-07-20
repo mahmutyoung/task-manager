@@ -8,10 +8,10 @@ const Board = () => {
   const todoList = List('todo', tasks);
 
   board.classList.add('board');
-  board.id = 'board';
+
   console.log(board);
   //board.appendChild(todoList);
-  board.innerHTML = `<div class="todo col-container" id="todo">${todoList}</div>`;
+  board.innerHTML = `<div class="list-container">${todoList}</div>`;
   console.log(board);
   document.body.insertBefore(board, document.getElementsByTagName('script')[1]);
   //return board;
