@@ -1,7 +1,7 @@
 const form = document.getElementById('pop-up__form');
 const popup = document.getElementById('pop-up__container');
 const btnCancel = document.getElementById('btn-cancel');
-//From manipulations
+//Form manipulations
 //submit form
 form.addEventListener('submit', handleSubmitForm);
 
@@ -26,7 +26,6 @@ function handleSubmitForm(e) {
     });
     parent.addEventListener('mouseleave', () => {
       parent.style.backgroundColor = 'rgb(255, 255, 255)';
-
       parent.children[0].children[1].style.visibility = 'hidden';
     });
   });
